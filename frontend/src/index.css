@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+:root {
+  /* Surface Layers (Nothing Dark Default) */
+  --bg-primary: #0A0A0A;       /* Pure base black */
+  --bg-surface: #141414;       /* Elevated layer: dropdowns, inputs, header */
+  --bg-card: #161616;          /* Clickable containers, item cards */
+  --bg-card-hover: #1E1E1E;    /* Subtle hover feedback */
+
+  /* Surgical Accent */
+  --accent-red: #EB0029;       /* Nothing Red */
+  --accent-red-hover: #D00024; /* Hover state for primary buttons */
+  --accent-red-glow: rgba(235, 0, 41, 0.18); /* Focus rings and glows */
+
+  /* Text & Typography Hierarchy */
+  --text-primary: #EDEDED;     /* Crisp white */
+  --text-secondary: #909090;   /* Mid gray */
+  --text-muted: #555555;       /* Subtle hints */
+
+  /* Borders & Dividers */
+  --border-color: #222222;     /* Subtle contrast border */
+  --border-subtle: #1C1C1C;    /* Subtle separators */
+
+  /* Nav active indicator */
+  --nav-active-bg: #FFFFFF;
+  --nav-active-text: #0A0A0A;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 220ms ease;
+
+  color-scheme: dark;
+}
+
+:root.light, html.light {
+  /* Nothing Light Theme (Minimalist Industrial Off-White Paper) */
+  --bg-primary: #F4F4F5;       /* Crisp light gray/paper */
+  --bg-surface: #FFFFFF;       /* Clean elevated white */
+  --bg-card: #FFFFFF;          /* Card containers */
+  --bg-card-hover: #F8F9FA;    /* Subtle hover */
+
+  --accent-red: #EB0029;       /* Signature Nothing Red */
+  --accent-red-hover: #D00024;
+  --accent-red-glow: rgba(235, 0, 41, 0.15);
+
+  --text-primary: #111827;     /* High-contrast ink black */
+  --text-secondary: #6B7280;   /* Slate gray */
+  --text-muted: #9CA3AF;       /* Muted gray */
+
+  --border-color: #E4E4E7;     /* Soft zinc border */
+  --border-subtle: #F0F0F2;    /* Subtle inner line */
+
+  --nav-active-bg: #111827;
+  --nav-active-text: #FFFFFF;
+
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+  letter-spacing: -0.01em;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* Technical & Monospace Typography */
+.font-mono-tech {
+  font-family: "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.section-label {
+  font-family: "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* Industrial Input Field */
+.nothing-input {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-family: "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color 200ms ease;
+}
+
+.nothing-input:hover {
+  border-color: var(--accent-red);
+}
+
+.nothing-input:focus {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 2px var(--accent-red-glow);
+}
+
+/* Field / Input Container Hover */
+.input-container {
+  transition: all var(--transition-fast);
+}
+
+.input-container:hover .nothing-input {
+  border-color: var(--accent-red);
+}
+
+.input-container:hover .section-label {
+  color: var(--text-primary);
+}
+
+.nothing-input::placeholder {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 10.5px;
+}
+
+/* Primary High-Contrast Button (Nothing Red) */
+.btn-primary {
+  background: var(--accent-red);
+  color: #FFFFFF;
+  border: none;
+  font-family: "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+.btn-primary:hover {
+  background: var(--accent-red-hover);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Secondary Surface Button */
+.btn-secondary {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-family: "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
+  font-size: 11.5px;
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.btn-secondary:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--text-secondary);
+}
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Corner Dot Matrix Grid (:::) */
+.corner-grid {
+  display: inline-grid;
+  grid-template-columns: repeat(3, 3px);
+  gap: 3px;
+  opacity: 0.4;
+}
+.corner-grid span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+}
+
+/* Floating Confirmation Pill Toast */
+.toast-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-family: "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
+  color: var(--text-primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  animation: toastPop 200ms ease;
+}
+
+.toast-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-red);
+  box-shadow: 0 0 6px var(--accent-red);
+  animation: pulseDot 1s infinite alternate;
+}
+
+@keyframes toastPop {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(1.25); opacity: 1; }
+}
+
+/* Tab Transition Animation */
+@keyframes tabSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-content-enter {
+  animation: tabSlideIn 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scrollable Container with Custom Slim Scrollbar */
+.scrollable-list {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+.scrollable-list::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollable-list::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
