@@ -603,6 +603,30 @@ export function App() {
         </div>
       </main>
 
+      {/* Industrial Nothing OS Footer */}
+      <footer className="mt-16 border-t border-[var(--border-color)] py-6 bg-[var(--bg-surface)]/50 backdrop-blur">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--text-secondary)] font-mono-tech">
+          <div className="flex items-center gap-2.5">
+            <div className="grid grid-cols-3 gap-[2.5px] p-1 rounded bg-[var(--bg-card)] border border-[var(--border-color)] shadow-inner">
+              <span className="h-1 w-1 rounded-full bg-[var(--accent-red)]" />
+              <span className="h-1 w-1 rounded-full bg-[var(--text-secondary)] opacity-60" />
+              <span className="h-1 w-1 rounded-full bg-[var(--text-secondary)] opacity-60" />
+              <span className="h-1 w-1 rounded-full bg-[var(--text-secondary)] opacity-60" />
+              <span className="h-1 w-1 rounded-full bg-[var(--accent-red)]" />
+              <span className="h-1 w-1 rounded-full bg-[var(--text-secondary)] opacity-60" />
+              <span className="h-1 w-1 rounded-full bg-[var(--text-secondary)] opacity-60" />
+              <span className="h-1 w-1 rounded-full bg-[var(--text-secondary)] opacity-60" />
+              <span className="h-1 w-1 rounded-full bg-[var(--accent-red)]" />
+            </div>
+            <span className="font-extrabold tracking-widest text-[var(--text-primary)]">SMARTINVOICE AI</span>
+            <span className="text-[var(--text-muted)]">&bull; INDUSTRIAL WORKSPACE</span>
+          </div>
+          <div className="flex items-center gap-2 text-[10px] text-[var(--text-muted)]">
+            <span>HIGH-PRECISION BILLING & SHIPPING ENGINE</span>
+          </div>
+        </div>
+      </footer>
+
       {/* Floating Confirmation Pill Toast */}
       <ToastBanner message={toastMessage} visible={showToast} />
     </div>
